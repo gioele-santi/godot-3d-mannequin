@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Player/Mannequiny.gd"
 }, {
+"base": "RigidBody",
+"class": "Pickable",
+"language": "GDScript",
+"path": "res://src/Dungeon/HandTorch.gd"
+}, {
 "base": "KinematicBody",
 "class": "Player",
 "language": "GDScript",
@@ -48,6 +53,7 @@ _global_script_class_icons={
 "CameraRig": "",
 "CameraState": "",
 "Mannequiny": "",
+"Pickable": "",
 "Player": "",
 "PlayerState": "",
 "State": "",
