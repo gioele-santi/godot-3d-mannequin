@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Main/Game.gd" type="Script" id=2]
 [ext_resource path="res://assets/3d/materials/BlockWall.tres" type="Material" id=3]
 [ext_resource path="res://src/Dungeon/HandTorch.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Dungeon/Torch.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/3d/materials/base_material.tres" type="Material" id=6]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
-[sub_resource type="Environment" id=1]
+[sub_resource type="Environment" id=2]
 background_energy = 1.63
 ambient_light_color = Color( 0.262745, 0.317647, 0.611765, 1 )
 
@@ -18,21 +19,52 @@ script = ExtResource( 2 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
 [node name="AnimationTree" parent="Player/Mannequiny" index="2"]
-parameters/playback = SubResource( 2 )
+parameters/playback = SubResource( 1 )
 
 [node name="Map" type="Spatial" parent="."]
 
 [node name="Walls" type="CSGBox" parent="Map"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3732, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.23416, 3.30737, 0 )
 use_collision = true
-invert_faces = true
+width = 0.538227
+height = 7.08078
+depth = 17.0286
+material = ExtResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="Map/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.23416, -3.43102, 0 )
+use_collision = true
 width = 16.0
-height = 6.75768
+height = 0.18807
 depth = 16.0
+material = ExtResource( 6 )
+
+[node name="Walls2" type="CSGBox" parent="Map/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4696, 0, 0 )
+use_collision = true
+width = 0.538227
+height = 7.08078
+depth = 17.0286
+material = ExtResource( 3 )
+
+[node name="Walls3" type="CSGBox" parent="Map/Walls"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.27253, 0, -8.15323 )
+use_collision = true
+width = 0.538227
+height = 7.08078
+depth = 17.0286
+material = ExtResource( 3 )
+
+[node name="Walls4" type="CSGBox" parent="Map/Walls"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.27253, 0, 8.10569 )
+use_collision = true
+width = 0.538227
+height = 7.08078
+depth = 17.0286
 material = ExtResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
+environment = SubResource( 2 )
 
 [node name="Torch" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.38077, 0, -6.94419 )
