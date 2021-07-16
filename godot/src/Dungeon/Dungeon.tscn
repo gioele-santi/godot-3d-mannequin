@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Main/Game.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/Dungeon/HandTorch.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Dungeon/Torch.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/3d/materials/base_material.tres" type="Material" id=6]
+[ext_resource path="res://src/Chemistry/ChemistryEngine.tscn" type="PackedScene" id=7]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -69,6 +70,10 @@ environment = SubResource( 2 )
 [node name="Torch" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.38077, 0, -6.94419 )
 
+[node name="Burnable" parent="Torch" index="2"]
+burning = true
+permanent = true
+
 [node name="Torch2" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93779, 0, -6.94419 )
 
@@ -76,5 +81,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93779, 0, -6.94419 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.779568 )
 target_path = NodePath("../Player/Mannequiny/root/Skeleton/HandRight")
 
+[node name="ChemistryEngine" parent="." instance=ExtResource( 7 )]
+
 [editable path="Player"]
 [editable path="Player/Mannequiny"]
+[editable path="Torch"]
+[editable path="Torch/Burnable"]
