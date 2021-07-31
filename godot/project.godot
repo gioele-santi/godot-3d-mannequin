@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Player/Mannequiny.gd"
 }, {
+"base": "Area",
+"class": "PickHand",
+"language": "GDScript",
+"path": "res://src/Dungeon/PickHand.gd"
+}, {
 "base": "RigidBody",
 "class": "Pickable",
 "language": "GDScript",
@@ -71,6 +76,7 @@ _global_script_class_icons={
 "ChemistryEngine": "",
 "Flame": "",
 "Mannequiny": "",
+"PickHand": "",
 "Pickable": "",
 "Player": "",
 "PlayerState": "",
@@ -203,7 +209,11 @@ zoom_out={
 [layer_names]
 
 2d_physics/layer_1="player"
+3d_physics/layer_1="player"
 2d_physics/layer_2="world"
+3d_physics/layer_2="world"
+3d_physics/layer_3="chemistry"
+3d_physics/layer_4="pickable"
 
 [rendering]
 

@@ -16,7 +16,6 @@ var is_moving := false setget set_is_moving
 
 func _ready() -> void:
 	animation_tree.active = true
-	$root/Skeleton/HandRIK.start()
 
 
 func set_move_direction(direction: Vector3) -> void:
@@ -41,6 +40,3 @@ func transition_to(state_id: int) -> void:
 			_playback.travel("jump")
 		_:
 			_playback.travel("idle")
-
-
-# this is a non optimal solution - IK code to control right hand to hold a torch

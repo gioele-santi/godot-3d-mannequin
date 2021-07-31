@@ -18,6 +18,7 @@ ambient_light_color = Color( 0.262745, 0.317647, 0.611765, 1 )
 script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.16289 )
 
 [node name="AnimationTree" parent="Player/Mannequiny" index="2"]
 parameters/playback = SubResource( 1 )
@@ -79,7 +80,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93779, 0, -6.94419 )
 
 [node name="HandTorch" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.779568 )
-target_path = NodePath("../Player/Mannequiny/root/Skeleton/HandRight")
 
 [node name="ChemistryEngine" parent="." instance=ExtResource( 7 )]
 
