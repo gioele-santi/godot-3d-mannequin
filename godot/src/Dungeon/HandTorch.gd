@@ -24,4 +24,5 @@ func get_picked_by(picker: Spatial) -> void:
 func get_thrown(direction: Vector3) -> void:
 	_target = null
 	mode = MODE_RIGID
+	apply_central_impulse(direction)
 	# apply force for throw action
