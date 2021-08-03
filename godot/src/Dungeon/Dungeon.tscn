@@ -10,10 +10,10 @@
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 9.19849, 0.307426, 8.58973 )
 
-[sub_resource type="Environment" id=2]
+[sub_resource type="Environment" id=3]
 background_energy = 1.63
 ambient_light_color = Color( 0.262745, 0.317647, 0.611765, 1 )
 
@@ -71,26 +71,26 @@ material = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Map/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.302322, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="Map/StaticBody"]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -8.22802, 3.27908, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="Map/StaticBody"]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 8.23486, 3.27908, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="Map/StaticBody"]
 transform = Transform( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.00627327, 3.27908, -8.1139 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape5" type="CollisionShape" parent="Map/StaticBody"]
 transform = Transform( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.00627327, 3.27908, 8.12169 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
+environment = SubResource( 3 )
 
 [node name="Torch" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.38077, 0, -6.94419 )
