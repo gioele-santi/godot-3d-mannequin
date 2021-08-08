@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "RigidBody",
 "class": "Pickable",
 "language": "GDScript",
-"path": "res://src/Dungeon/HandTorch.gd"
+"path": "res://src/Dungeon/PickableObject.gd"
 }, {
 "base": "KinematicBody",
 "class": "Player",

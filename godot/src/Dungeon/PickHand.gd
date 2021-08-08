@@ -33,7 +33,6 @@ func _process(delta: float) -> void:
 			strength = min(max_strength, strength + delta * strength_speed)
 		elif Input.is_action_just_released('fire'):
 			anim_player.play('throw')
-			
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('interact') and pickable_object:
@@ -55,9 +54,6 @@ func reset_hand() -> void:
 	hand_ik.stop()
 	strength = 0.0
 
-#add Tween and store default (relative) position
-# add animations for one handed attacks (it could be a FSM per se)
-
 func _on_PickHand_body_entered(body: Node) -> void:
 	if picking:
 		return
@@ -65,7 +61,6 @@ func _on_PickHand_body_entered(body: Node) -> void:
 	if body.is_in_group("pickable"):
 		print("Can pick")
 		pickable_object = body
-
 
 func _on_PickHand_body_exited(body: Node) -> void:
 	if body.is_in_group("pickable") and not picking:

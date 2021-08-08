@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/3d/objects/Circles.material" type="Material" id=1]
 [ext_resource path="res://assets/3d/objects/Bark.material" type="Material" id=2]
-[ext_resource path="res://src/Dungeon/HandTorch.gd" type="Script" id=3]
+[ext_resource path="res://src/Dungeon/PickableObject.gd" type="Script" id=3]
 [ext_resource path="res://src/Chemistry/Burnable.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ArrayMesh" id=1]
