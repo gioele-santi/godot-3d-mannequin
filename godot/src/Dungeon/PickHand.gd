@@ -38,6 +38,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('interact') and pickable_object:
 		picking = true
 		pickable_object.get_picked_by(right_hand)
+		pickable_object.highlight = false
 		hand_ik.start()
 		
 	if event.is_action_pressed('fire') and pickable_object:
@@ -60,9 +61,11 @@ func _on_PickHand_body_entered(body: Node) -> void:
 	# add animation for picking
 	if body.is_in_group("pickable"):
 		print("Can pick")
+		body.highlight = true
 		pickable_object = body
 
 func _on_PickHand_body_exited(body: Node) -> void:
 	if body.is_in_group("pickable") and not picking:
 		print("Pickable exited")
+		body.highlight = false
 		pickable_object = null

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/3d/objects/Circles.material" type="Material" id=1]
 [ext_resource path="res://assets/3d/objects/Bark.material" type="Material" id=2]
 [ext_resource path="res://src/Dungeon/PickableObject.gd" type="Script" id=3]
 [ext_resource path="res://src/Chemistry/Burnable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Dungeon/Highlightable.gd" type="Script" id=5]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Torch"
@@ -50,6 +51,8 @@ transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
+script = ExtResource( 5 )
+highlight = true
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.206608, 0 )

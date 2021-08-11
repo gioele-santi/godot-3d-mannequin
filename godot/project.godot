@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Chemistry/Flame.gd"
 }, {
+"base": "MeshInstance",
+"class": "Highlightable",
+"language": "GDScript",
+"path": "res://src/Dungeon/Highlightable.gd"
+}, {
 "base": "Spatial",
 "class": "Mannequiny",
 "language": "GDScript",
@@ -75,6 +80,7 @@ _global_script_class_icons={
 "CameraState": "",
 "ChemistryEngine": "",
 "Flame": "",
+"Highlightable": "",
 "Mannequiny": "",
 "PickHand": "",
 "Pickable": "",
