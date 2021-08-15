@@ -1,10 +1,68 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/3d/objects/Circles.material" type="Material" id=1]
-[ext_resource path="res://assets/3d/objects/Bark.material" type="Material" id=2]
 [ext_resource path="res://src/Dungeon/PickableObject.gd" type="Script" id=3]
 [ext_resource path="res://src/Chemistry/Burnable.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Dungeon/Highlightable.gd" type="Script" id=5]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type spatial;
+render_mode unshaded, cull_front;
+
+uniform float active = 0.0;
+uniform float thickness = 0.1;
+uniform vec4 outline_color : hint_color = vec4(1.0);
+
+void vertex() {
+    VERTEX += (NORMAL * thickness * active);
+}
+
+void fragment() {
+    ALBEDO = outline_color.rgb;
+    ALPHA = outline_color.a;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 3 )
+shader_param/active = 0.0
+shader_param/thickness = 0.014
+shader_param/outline_color = Color( 0.364706, 0.815686, 0.478431, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_name = "Bark"
+next_pass = SubResource( 2 )
+vertex_color_use_as_albedo = true
+params_cull_mode = 2
+albedo_color = Color( 0.339992, 0.188911, 0.0721277, 1 )
+
+[sub_resource type="Shader" id=5]
+code = "shader_type spatial;
+render_mode unshaded, cull_front;
+
+uniform float active = 0.0;
+uniform float thickness = 0.1;
+uniform vec4 outline_color : hint_color = vec4(1.0);
+
+void vertex() {
+    VERTEX += (NORMAL * thickness * active);
+}
+
+void fragment() {
+    ALBEDO = outline_color.rgb;
+    ALPHA = outline_color.a;
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/active = 0.0
+shader_param/thickness = 0.014
+shader_param/outline_color = Color( 0.364706, 0.815686, 0.478431, 1 )
+
+[sub_resource type="SpatialMaterial" id=7]
+resource_name = "Circles"
+next_pass = SubResource( 6 )
+vertex_color_use_as_albedo = true
+params_cull_mode = 2
+albedo_color = Color( 0.673327, 0.539086, 0.432428, 1 )
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Torch"
@@ -15,7 +73,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 144,
-"material": ExtResource( 2 ),
+"material": SubResource( 4 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 96
@@ -27,17 +85,17 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 450,
-"material": ExtResource( 1 ),
+"material": SubResource( 7 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 306
 }
 
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="CapsuleShape" id=8]
 radius = 0.0327276
 height = 0.503538
 
-[sub_resource type="SphereShape" id=3]
+[sub_resource type="SphereShape" id=9]
 radius = 0.106605
 
 [node name="HandTorch" type="RigidBody"]
@@ -56,12 +114,12 @@ highlight = true
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.206608, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 8 )
 
 [node name="Burnable" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.439702, 0 )
 
 [node name="CollisionShape" parent="Burnable" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 9 )
 
 [editable path="Burnable"]

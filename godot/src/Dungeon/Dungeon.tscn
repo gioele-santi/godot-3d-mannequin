@@ -24,6 +24,9 @@ script = ExtResource( 2 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.16289 )
 
+[node name="Skeleton" parent="Player/Mannequiny/root" index="0"]
+bones/16/bound_children = [ NodePath("HandRBone") ]
+
 [node name="AnimationTree" parent="Player/Mannequiny" index="2"]
 parameters/playback = SubResource( 1 )
 

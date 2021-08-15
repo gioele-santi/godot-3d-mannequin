@@ -1,30 +1,23 @@
 extends Area
 class_name PickHand
 
-# I need a container where to move all other nodes. It should always keep the same loc/rot relative to player position to have better direction with throw
-
-var skin: Mannequiny = null
+var picking := false # <- this should be a state
 var pickable_object: Pickable = null 
 var hand_ik: SkeletonIK # I need some kind of easy setup, but it must always be child of skeleton
-
-onready var right_hand := $HandRight
-onready var anim_player := $AnimationPlayer
-
-var picking := false # <- this should be a state
+var right_hand : Position3D 
 
 # Throw
+onready var anim_player := $AnimationPlayer
 var strength := 0.0
 export (float, 2.0, 10.0) var strength_speed = 5.0
 export (float, 5.0, 20.0) var max_strength := 10.0
 
-# make it a  FSM, states will be IDLE, CHARGE (throw), MOVE (either walk or run), check how to manage attacks
-
 func _ready() -> void:
 	yield(owner, "ready")
 	var skeleton = get_parent()
-	skin = skeleton.get_parent().get_parent()
 #	add_to_group("picker")
 	hand_ik = skeleton.get_node('HandRIK')
+	right_hand = skeleton.get_node('HandRBone/Position3D')
 
 func _process(delta: float) -> void:
 	if pickable_object:
@@ -60,12 +53,10 @@ func _on_PickHand_body_entered(body: Node) -> void:
 		return
 	# add animation for picking
 	if body.is_in_group("pickable"):
-		print("Can pick")
 		body.highlight = true
 		pickable_object = body
 
 func _on_PickHand_body_exited(body: Node) -> void:
 	if body.is_in_group("pickable") and not picking:
-		print("Pickable exited")
 		body.highlight = false
 		pickable_object = null

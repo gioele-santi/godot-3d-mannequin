@@ -20,6 +20,5 @@ func _set_shader_parameter(name: String, value: float) -> void:
 
 func set_highlight(value: bool) -> void:
 	highlight = value
-	print("Setting highlight: " + str(value))
 	var uniform_value = 1.0 if highlight else 0.0
 	_set_shader_parameter(active_uniform, uniform_value)
