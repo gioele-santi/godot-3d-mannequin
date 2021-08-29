@@ -27,6 +27,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.16289 )
 [node name="Skeleton" parent="Player/Mannequiny/root" index="0"]
 bones/16/bound_children = [ NodePath("HandRBone") ]
 
+[node name="HandRBone" parent="Player/Mannequiny/root/Skeleton" index="2"]
+transform = Transform( -0.650664, 0.313892, -0.691433, -0.347153, 0.686899, 0.638535, 0.675365, 0.655473, -0.337922, -0.174945, 1.39349, 0.480987 )
+
 [node name="AnimationTree" parent="Player/Mannequiny" index="2"]
 parameters/playback = SubResource( 1 )
 
