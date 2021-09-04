@@ -23,4 +23,5 @@ func _on_Flame_area_entered(area: Area) -> void:
 	if area.is_in_group("burnable"):
 		area.burning = true
 	if area.is_in_group("water") and burnable != null:
+		print("Flame in water")
 		burnable.burning = false 

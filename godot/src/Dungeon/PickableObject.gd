@@ -32,8 +32,8 @@ func get_picked_by(picker: Spatial) -> void:
 	_target = picker
 	mode = MODE_KINEMATIC
 
-func get_thrown(direction: Vector3) -> void:
+func get_thrown(impulse: Vector3) -> void:
+	#impulse (direction and strength)
 	_target = null
 	mode = MODE_RIGID
-	apply_central_impulse(direction)
-	# apply force for throw action
+	apply_central_impulse(impulse)

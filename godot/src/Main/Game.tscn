@@ -25,6 +25,9 @@ script = ExtResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58673, -0.0176746, -5.36121 )
 collision_mask = 2
 
+[node name="HandRBone" parent="Player/Mannequiny/root/Skeleton" index="2"]
+transform = Transform( -0.650664, 0.313892, -0.691433, -0.347153, 0.686899, 0.638535, 0.675365, 0.655473, -0.337922, -0.174945, 1.39349, 0.480987 )
+
 [node name="AnimationTree" parent="Player/Mannequiny" index="2"]
 parameters/playback = SubResource( 1 )
 

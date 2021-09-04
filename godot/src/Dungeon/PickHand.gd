@@ -40,7 +40,6 @@ func _unhandled_input(event: InputEvent) -> void:
 func release_object() -> void:
 	var dir := global_transform.basis.z.normalized() * strength + Vector3(0,5,0)
 	pickable_object.get_thrown(dir)
-	yield(get_tree().create_timer(1.0), "timeout")
 	pickable_object = null 
 	picking = false
 
